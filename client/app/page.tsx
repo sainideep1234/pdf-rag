@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
-const page = () => {
-  const router = useRouter()
+const Page = () => {
+  const router = useRouter();
 
   return (
     <div className="w-screen bg-slate-800 h-screen ">
@@ -14,7 +14,10 @@ const page = () => {
         </span>
         <span className="text-center text-7xl uppercase">are you ready</span>
         <div className="flex justify-center items-center mt-10">
-          <button  onClick={() => router.push('/signin')} className="text-slate-950 text-xl px-8 py-2 rounded-lg font-bold bg-slate-50 border-2 hover:shadow hover:shadow-white hover:text-slate-500 transition-all duration-300 delay-100 ">
+          <button
+            onClick={() => router.push("/signin")}
+            className="text-slate-950 text-xl px-8 py-2 rounded-lg font-bold bg-slate-50 border-2 hover:shadow hover:shadow-white hover:text-slate-500 transition-all duration-300 delay-100 "
+          >
             {`Let's Start >`}
           </button>
         </div>
@@ -23,4 +26,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
