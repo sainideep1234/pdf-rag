@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: pdf-rag
+    env: docker
+    image: yashdoc1234/pdf-rag:latest
+    plan: free
+    region: oregon
+    ports:
+      - 3000
+    dependsOn:
+      - valkey
+      - qdrant
+    envVars:
+      - key: REDIS_URL
+        value: redis://valkey:6379
+      - key: QDRANT_URL
+        value: http://qdrant:6333
+
+  - type: private
+    name: valkey
+    env: docker
+    image: valkey/valkey
+    plan: free
+    region: oregon
+    ports:
+      - 6379
+
+  - type: private
+    name: qdrant
+    env: docker
+    image: qdrant/qdrant
+    plan: free
+    region: oregon
+    ports:
+      - 6333
