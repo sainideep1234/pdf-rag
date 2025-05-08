@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc -b",
+    "start": "node dist/index",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsc -b && node dist/index.js",
     "dev:worker": "tsc -b && node dist/utils/worker.js"
@@ -19,6 +21,7 @@
     "@langchain/google-genai": "^0.2.4",
     "@langchain/qdrant": "^0.1.2",
     "@qdrant/js-client-rest": "^1.14.0",
+    "@types/express": "^5.0.1",
     "bullmq": "^5.49.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",

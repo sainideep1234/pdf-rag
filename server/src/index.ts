@@ -1,12 +1,10 @@
-import express, { json, Request, Response } from "express";
+import express, {  Request, Response } from "express";
 import { upload } from "./utils/uploadfile";
 import { Queue } from "bullmq";
 import cors from "cors";
 import { LlmModelChat } from "./utils/llmModel";
 import { embeddings } from "./utils/embedingmodel";
 import { QdrantVectorStore } from "@langchain/qdrant";
-
-import { authMiddleware } from "./middleware/authMiddleware";
 
 const app = express();
 
@@ -22,7 +20,6 @@ app.use(cors());
 
 app.post(
   "/upload/pdf",
-  authMiddleware,
   upload.single("pdf"),
   async (req: Request, res: Response) => {
     await queue.add(
